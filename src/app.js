@@ -9,6 +9,8 @@ const public = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
 
+const port = process.env.PORT || 8080;
+
 // Setup public directory
 app.use(express.static(public));
 
@@ -70,6 +72,6 @@ app
   .get("*", (req, res) => {
     res.render("404", { title: "404 Not found" });
   })
-  .listen(8080, () => {
+  .listen(port, () => {
     console.log("Server is running");
   });
